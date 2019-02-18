@@ -4,12 +4,11 @@ Metrics/LineLength:
 Style/Documentation:
   Exclude:
     - 'app/mailers/application_mailer.rb'
-    - 'app/models/application_record.rb'
+    - 'app/models/*'
+    - 'app/controllers/api/v1/*'
     - 'config/application.rb'
     - 'test/test_helper.rb'
     - 'db/migrate/*'
-    - 'app/models/feature.rb'
-    - 'app/controllers/api/v1/features_controller.rb'
 
 Style/ClassAndModuleChildren:
   Exclude:

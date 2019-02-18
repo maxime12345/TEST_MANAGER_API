@@ -10,7 +10,8 @@ module Api
 
       def show
         @feature = Feature.find(params[:id])
-        render json: { status: 'SUCCESS', message: 'Loaded feature', data: @feature }, status: :ok
+        @tests = @feature.tests
+        render json: { status: 'SUCCESS', message: 'Loaded feature', feature: @feature, tests: @tests }, status: :ok
       end
 
       def create
@@ -18,7 +19,7 @@ module Api
         if @feature.save
           render json: { status: 'SUCCESS', message: 'Saved feature', data: @feature }, status: :ok
         else
-          render json: { status: 'ERROR', message: 'Article not saved', data: @feature.errors },
+          render json: { status: 'ERROR', message: 'Feature not saved', data: @feature.errors },
                  status: :unprocessable_entity
         end
       end
