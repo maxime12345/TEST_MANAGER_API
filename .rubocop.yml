@@ -18,3 +18,7 @@ Style/MixinUsage:
   Exclude:
     - 'bin/update'
     - 'bin/setup'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/*/*'
