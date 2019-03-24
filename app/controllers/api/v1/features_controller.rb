@@ -5,13 +5,20 @@ module Api
     class FeaturesController < ApplicationController
       def index
         @features = Feature.all
-        render json: { status: 'SUCCESS', message: 'Loaded features', data: @features }, status: :ok
+        result = { "status": 'SUCCESS', "message": 'Loaded features' }
+        result['data'] = @features.map do |feature|
+          {
+            "id": feature.id,
+            "name": feature.name,
+            "tests": feature.tests.map(&:id)
+          }
+        end
+        render json: result
       end
 
       def show
         @feature = Feature.find(params[:id])
-        @tests = @feature.tests
-        render json: { status: 'SUCCESS', message: 'Loaded feature', feature: @feature, tests: @tests }, status: :ok
+        render json: @feature, status: :ok
       end
 
       def create

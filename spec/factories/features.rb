@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :feature do
-    name 'new feature'
+    name { 'new feature' }
   end
 end

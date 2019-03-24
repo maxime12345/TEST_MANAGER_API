@@ -22,7 +22,7 @@ RSpec.describe 'FeaturesApis', type: :request do
       get api_v1_feature_path(id: feature.id)
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
-      expect(json['feature']['id']).to eq feature.id
+      expect(json['id']).to eq feature.id
     end
   end
 

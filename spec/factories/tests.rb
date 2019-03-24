@@ -2,7 +2,8 @@
 
 FactoryBot.define do
   factory :test do
-    name 'new test'
-    status '%w[undefined passed failed].sample'
+    name { 'new test' }
+    status { 'undefined' }
+    association :feature
   end
 end
